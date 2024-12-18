@@ -5,3 +5,4 @@ vercel
 .prettierignore
 .prettierrc
 eslint.config.mjs
+.env
