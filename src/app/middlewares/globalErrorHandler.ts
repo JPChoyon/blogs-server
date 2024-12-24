@@ -9,12 +9,7 @@ import handleCasteError from '../error/handleCasteError';
 import handleDuplicateError from '../error/handleDuplicateError';
 import AppError from '../error/AppError';
 
-const globalErrorHandler: ErrorRequestHandler | Record<string, any> = (
-  err,
-  req,
-  res,
-  next,
-) => {
+const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   //setting default values
   let statusCode = 500;
   let message = 'Something went wrong!';
@@ -64,7 +59,7 @@ const globalErrorHandler: ErrorRequestHandler | Record<string, any> = (
   } else {
     message = err.message || 'Internal server error';
   }
-  return res.status(statusCode).json({
+  res.status(statusCode).json({
     success: false,
     message,
     error: error,
