@@ -1,6 +1,8 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import router from './app/router';
+import globalErrorHandler from './app/middlewares/globalErrorHandler';
+import notFound from './app/middlewares/notFound';
 const app = express();
 
 // parser / middleware
@@ -17,5 +19,8 @@ const getAController = async (req: Request, res: Response) => {
 
 app.get('/', getAController);
 
-
+// error handle route
+app.use(globalErrorHandler);
+//Not Found
+app.use(notFound);
 export default app;
