@@ -13,7 +13,7 @@ const handleDuplicateError = (err: mongoose.Error): TGenericErrorResponse => {
   const statusCode = 400;
   return {
     statusCode,
-    message: 'Invalid ID',
+    message: 'Duplicate Email ',
     error,
   };
 };
