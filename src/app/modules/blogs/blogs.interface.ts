@@ -10,3 +10,9 @@ export type TBlogPost = {
   };
   isPublished?: boolean;
 };
+export interface IFindBlogsQueryParams {
+  search?: string;
+  sortBy?: string;
+  sortOrder?: 'asc' | 'desc';
+  filter?: string;
+}
