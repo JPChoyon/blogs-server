@@ -3,6 +3,10 @@ import { ObjectId } from 'mongodb';
 export type TBlogPost = {
   title: string;
   content: string;
-  author: ObjectId;
+  author: {
+    _id: ObjectId;
+    name: string;
+    email: string;
+  };
   isPublished?: boolean;
 };
