@@ -50,7 +50,7 @@ const findAllBlogs = catchAsync(async (req, res) => {
 });
 const deleteBlogs = catchAsync(async (req, res) => {
   const blogId = req.params.id;
-  const userId = req.user.userId as string;
+  const userId = req?.user?.userId as string;
   //  delete the blog
   await blogsServices.deleteBlogsInDB(blogId, userId);
   sendResponse(res, {
@@ -62,7 +62,7 @@ const deleteBlogs = catchAsync(async (req, res) => {
 });
 const updateBlogs = catchAsync(async (req, res) => {
   const blogId = req.params.id;
-  const userId = req.user.userId as string; 
+  const userId = req.user?.userId as string; 
   const { title, content } = req.body;
 
   // Call the service to update the blog
