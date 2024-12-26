@@ -1,6 +1,6 @@
-# This is car store server.
+# This is Blogs server.
 
-### if you want to run in this locally then please follow the procedure
+# if you want to run in this locally then please follow the procedure
 
 ## Step 1
 
