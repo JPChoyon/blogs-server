@@ -5,5 +5,6 @@ import { blogsController } from './blogs.controller';
 const router = express.Router();
 
 router.post('/', auth(USER_ROLE.user), blogsController.createBlogs);
-// router.post('/login', validator(loginUserSchema), authController.loginUser);
+router.get('/', blogsController.findAllBlogs);
+
 export const BlogsRoutes = router;
