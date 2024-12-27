@@ -6,3 +6,4 @@ vercel
 .prettierrc
 eslint.config.mjs
 .env
+vercel.json

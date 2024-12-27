@@ -8,10 +8,3 @@ export type TGenericErrorResponse = {
   message: string;
   error: TError;
 };
-// {
-//   "success": false,
-//   "message": "Validation error",
-//   "statusCode": 400,
-//   "error": { "details" },
-//   "stack": "error stack"
-// }
