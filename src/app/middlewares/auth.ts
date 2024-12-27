@@ -9,12 +9,15 @@ import { TUserRole } from '../modules/User/user.interface';
 
 const auth = (...requiredRoles: TUserRole[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
-    const token = req.headers.authorization;
+    const authHeader = req.headers.authorization;
 
-    // checking if the token is missing
-    if (!token) {
+    // Checking if the Authorization header is missing
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
       throw new AppError(httpStatus.UNAUTHORIZED, 'You are not authorized!');
     }
+
+    // Extracting the token from the Authorization header
+    const token = authHeader.split(' ')[1];
 
     // checking if the given token is valid
     const decoded = jwt.verify(token, config.secret as string) as JwtPayload;
